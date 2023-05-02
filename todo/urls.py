@@ -19,6 +19,12 @@ from tasks import views
 from crm import views as crm_views
 from django.conf import settings
 from django.conf.urls.static import static
+from crmapi import views as api_views
+from rest_framework.routers import DefaultRouter
+
+router=DefaultRouter()
+router.register("api/employees",api_views.EmployeesView,basename="employees")
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -39,5 +45,5 @@ urlpatterns = [
     path("login/",crm_views.SignInView.as_view(),name="signin"),
     path("logout/",crm_views.signout_view,name="signout"),
 
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]+router.urls+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
