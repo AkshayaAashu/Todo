@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-g!qw5aqq-y(ut@9f^kn_4mt!x^ugqk(fpa#^okxj_%imwqxi4&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'tasks',
     'crm',
     'crmapi',
-    'rest_framework'
+    'rest_framework',
+    'todoapi',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
